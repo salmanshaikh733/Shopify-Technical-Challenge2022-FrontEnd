@@ -1,27 +1,43 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, {useState,useEffect} from 'react';
 import EmployeeService from "../services/EmployeeService";
+//TODO add routing from add button
 
-class ListEmployeeComponent extends Component {
-    constructor(props) {
+function ListEmployeeComponent() {
+
+  /*  constructor(props) {
         super(props);
-
         this.state = {
             employees: []
         }
-    }
 
-    componentDidMount() {
+        this.addEmployee= this.addEmployee.bind(this);
+    }*/
 
+    const[employees, setEmployees] = useState([])
+
+    /*addEmployee(){
+        this.props.history.push('/add-employee');
+    }*/
+
+   /* componentDidMount() {
         EmployeeService.getEmployees().then((res)=> {
             this.setState({employees:res.data})
         });
-    }
+    }*/
 
-    render() {
+    useEffect(()=>{
+        EmployeeService.getEmployees().then((res)=> {
+            setEmployees(res.data)
+        })
+    },[])
+
+
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
+                {/*<button className="btn btn-primary button" onClick={() => history.push('/add-employee')}> Add Employee</button>*/}
+                <div className="row">
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
@@ -34,7 +50,7 @@ class ListEmployeeComponent extends Component {
                         </thead>
                         <tbody>
                         {
-                            this.state.employees.map(
+                            employees.map(
                                 employee => <tr key={employee.id}>
                                             <td> {employee.firstName}</td>
                                             <td> {employee.lastName}</td>
@@ -48,9 +64,8 @@ class ListEmployeeComponent extends Component {
 
             </div>
         );
-    }
 }
 
-ListEmployeeComponent.propTypes = {};
-
 export default ListEmployeeComponent;
+
+

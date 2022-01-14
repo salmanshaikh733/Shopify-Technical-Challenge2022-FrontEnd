@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 
-class HeaderComponent extends Component {
-    constructor(props) {
-        super(props);
-        
-    }
-    
-    render() {
+function HeaderComponent() {
+
         return (
             <div>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark ">
@@ -16,7 +11,7 @@ class HeaderComponent extends Component {
                 </nav>
             </div>
         );
-    }
+
 }
 
 export default HeaderComponent;

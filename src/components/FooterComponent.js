@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 
-class FooterComponent extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-
-    render() {
+function FooterComponent(){
         return (
             <div>
                 <footer className= "footer">
-                    <span className="text-muted"> All rights Reserved 2020 @JavaGuides</span>
+                    <span className="text-muted"> All rights Reserved 2020 Salman Shaikh</span>
                 </footer>
                 
             </div>
         );
-    }
+
 }
 
 export default FooterComponent;

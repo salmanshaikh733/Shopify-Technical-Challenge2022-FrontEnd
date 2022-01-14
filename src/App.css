@@ -59,3 +59,12 @@
   align-content: flex-start;
   margin-bottom: 5px;
 }
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.cancel-button {
+  float: right;
+
+}

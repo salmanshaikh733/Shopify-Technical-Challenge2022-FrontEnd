@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import EmployeeService from "../services/EmployeeService";
 import {useNavigate} from "react-router";
 
-//TODO add routing from add button
+
 
 function ListEmployeeComponent() {
     let navigate = useNavigate();

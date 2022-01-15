@@ -68,6 +68,12 @@
   float: right;
 }
 
+.go-back-button {
+  float: right;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
 .margin-top {
   margin-top: 20px;
 }

@@ -17,8 +17,26 @@ class EmployeeService {
             .catch(e => {
                 console.log(e)
             });
+    }
 
+    async updateEmployee(data, id) {
+        await axios.put(EMPLOYEE_API_BASE_URL + `/update-employee/${id}`, data, {headers:headers})
+            .then(r=> console.log())
+            .catch(e => {
+                console.log(e)
+            });
+    }
 
+    async getEmployeeById(employeeId) {
+        return await axios.get(EMPLOYEE_API_BASE_URL + "/get-employees/" + employeeId)
+    }
+
+    async deleteEmployee(id) {
+        await axios.delete(EMPLOYEE_API_BASE_URL + `/delete-employee/${id}`, {headers:headers})
+            .then(r=> console.log())
+            .catch(e=> {
+                console.log(e)
+            });
     }
 
 

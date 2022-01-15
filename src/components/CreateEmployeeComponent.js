@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import EmployeeService from "../services/EmployeeService";
 import {useNavigate} from "react-router";
+import {ToastContainer, toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreateEmployeeComponent() {
 
@@ -27,14 +29,19 @@ function CreateEmployeeComponent() {
     const saveEmployee = async event => {
         event.preventDefault();
         let newEmployee = {firstName: firstName, lastName: lastName, emailId: emailId}
-
-        await EmployeeService.createNewEmployee(newEmployee);
-        navigate("/employees");
-
+        if(firstName !=="" && lastName!=="" && emailId !=="") {
+            await EmployeeService.createNewEmployee(newEmployee);
+            toast("Success, Employee Added");
+            //navigate("/employees");
+        } else {
+            alert("Do not submit empty boxes");
+        }
     }
+
+
     return (
         <div>
-            <div className="container">
+            <div className="container margin-top">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
                         <h3 className="text-center"> Add Employee </h3>
@@ -58,6 +65,17 @@ function CreateEmployeeComponent() {
                                 <button type="submit" className="btn btn-primary" onClick={saveEmployee}>Save Employee</button>
                                 <button type="submit" className="btn btn-danger cancel-button" onClick={()=>navigate("/employees")}>Cancel</button>
                             </form>
+                            <ToastContainer
+                                position="bottom-center"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                            />
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
-import EmployeeService from "../services/EmployeeService";
+import ItemService from "../services/ItemService";
 import {useNavigate} from "react-router";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,7 +19,7 @@ function UpdateEmployeeComponent(props) {
 
     //when component mounts
     useEffect(() => {
-        EmployeeService.getEmployeeById(employeeId).then((res) =>{
+        ItemService.getEmployeeById(employeeId).then((res) =>{
             let employee = res.data;
             setFirstName(employee.firstName)
             setLastName(employee.lastName)
@@ -45,7 +45,7 @@ function UpdateEmployeeComponent(props) {
         event.preventDefault();
         let newEmployee = {firstName: firstName, lastName: lastName, emailId: emailId}
         if(firstName !=="" && lastName!=="" && emailId !=="") {
-            await EmployeeService.updateEmployee(newEmployee,employeeId);
+            await ItemService.updateEmployee(newEmployee,employeeId);
             toast("Success, Employee Updated");
 
         } else {

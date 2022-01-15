@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import EmployeeService from "../services/EmployeeService";
+import ItemService from "../services/ItemService";
 import {useNavigate} from "react-router";
 
 
@@ -17,7 +17,7 @@ function ViewEmployeeComponent(props) {
 
     //component did mount
     useEffect(() => {
-        EmployeeService.getEmployeeById(employeeId).then((res) => {
+        ItemService.getEmployeeById(employeeId).then((res) => {
             employee = res.data;
             setFirstName(employee.firstName)
             setLastName(employee.lastName)

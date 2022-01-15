@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import EmployeeService from "../services/EmployeeService";
+import ItemService from "../services/ItemService";
 import {useNavigate} from "react-router";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,7 +30,7 @@ function CreateEmployeeComponent() {
         event.preventDefault();
         let newEmployee = {firstName: firstName, lastName: lastName, emailId: emailId}
         if(firstName !=="" && lastName!=="" && emailId !=="") {
-            await EmployeeService.createNewEmployee(newEmployee);
+            await ItemService.createNewEmployee(newEmployee);
             toast("Success, Employee Added");
         } else {
             alert("Do not submit empty boxes");

@@ -1,18 +1,18 @@
 import axios from "axios";
 
-const EMPLOYEE_API_BASE_URL = "http://localhost:8080/api/v1";
+const ITEM_API_BASE_URL = "http://localhost:8080/api/v1";
 const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': "*",
 }
-class EmployeeService {
+class ItemService {
 
     async getEmployees() {
-        return await axios.get(EMPLOYEE_API_BASE_URL + "/employees");
+        return await axios.get(ITEM_API_BASE_URL + "/items");
     }
 
     async createNewEmployee(data) {
-        await axios.post(EMPLOYEE_API_BASE_URL + "/add-employees", data, {headers: headers})
+        await axios.post(ITEM_API_BASE_URL + "/add-items", data, {headers: headers})
             .then(r => console.log())
             .catch(e => {
                 console.log(e)
@@ -20,7 +20,7 @@ class EmployeeService {
     }
 
     async updateEmployee(data, id) {
-        await axios.put(EMPLOYEE_API_BASE_URL + `/update-employee/${id}`, data, {headers:headers})
+        await axios.put(ITEM_API_BASE_URL + `/update-item/${id}`, data, {headers:headers})
             .then(r=> console.log())
             .catch(e => {
                 console.log(e)
@@ -28,11 +28,11 @@ class EmployeeService {
     }
 
     async getEmployeeById(employeeId) {
-        return await axios.get(EMPLOYEE_API_BASE_URL + "/get-employees/" + employeeId)
+        return await axios.get(ITEM_API_BASE_URL + "/get-item/" + employeeId)
     }
 
     async deleteEmployee(id) {
-        await axios.delete(EMPLOYEE_API_BASE_URL + `/delete-employee/${id}`, {headers:headers})
+        await axios.delete(ITEM_API_BASE_URL + `/delete-item/${id}`, {headers:headers})
             .then(r=> console.log())
             .catch(e=> {
                 console.log(e)
@@ -43,4 +43,4 @@ class EmployeeService {
 
 }
 
-export default new EmployeeService()
+export default new ItemService()

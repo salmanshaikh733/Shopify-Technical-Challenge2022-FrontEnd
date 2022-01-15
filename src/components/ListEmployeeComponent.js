@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import EmployeeService from "../services/EmployeeService";
+import ItemService from "../services/ItemService";
 import {useNavigate} from "react-router";
 import TableScrollbar from 'react-table-scrollbar';
 
@@ -11,7 +11,7 @@ function ListEmployeeComponent() {
 
     //on initial mount
     useEffect(() => {
-        EmployeeService.getEmployees().then((res) => {
+        ItemService.getEmployees().then((res) => {
             setEmployees(res.data)
             employees.sort()
             setDirty(dirty+1)
@@ -19,13 +19,13 @@ function ListEmployeeComponent() {
     }, [])
 
     useEffect(() => {
-        EmployeeService.getEmployees().then((res) => {
+        ItemService.getEmployees().then((res) => {
             setEmployees(res.data)
         })
     }, [dirty])
 
     const deleteEmployee = async event => {
-        await EmployeeService.deleteEmployee(event).then((res)=> {
+        await ItemService.deleteEmployee(event).then((res)=> {
             setDirty(dirty+1)
         })
     }

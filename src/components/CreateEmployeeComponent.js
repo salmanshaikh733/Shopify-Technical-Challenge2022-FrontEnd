@@ -62,7 +62,7 @@ function CreateEmployeeComponent() {
                                            value={emailId} onChange={handleEmailChange}/>
                                 </div>
                                 <button type="submit" className="btn btn-primary" onClick={saveEmployee}>Save Employee</button>
-                                <button type="submit" className="btn btn-danger cancel-button" onClick={()=>navigate("/employees")}>Cancel</button>
+                                <button type="submit" className="btn btn-danger cancel-button" onClick={()=>navigate("/items")}>Cancel</button>
                             </form>
                             <ToastContainer
                                 position="bottom-center"

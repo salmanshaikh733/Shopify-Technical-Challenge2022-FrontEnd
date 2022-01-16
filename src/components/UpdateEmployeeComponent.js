@@ -11,42 +11,43 @@ function UpdateEmployeeComponent(props) {
 
     const params = useParams();
     let navigate = useNavigate();
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [emailId, setEmailId] = useState("")
-    const [employeeId, setEmployeeId] = useState(params.id)
+    const [itemName, setItemName] = useState("")
+    const [itemQuantity, setItemQuantity] = useState("")
+    const [itemPrice, setItemPrice] = useState("")
+    const [itemId, setItemId] = useState(params.id)
 
 
     //when component mounts
     useEffect(() => {
-        ItemService.getItemById(employeeId).then((res) =>{
-            let employee = res.data;
-            setFirstName(employee.firstName)
-            setLastName(employee.lastName)
-            setEmailId(employee.emailId)
+        ItemService.getItemById(itemId).then((res) =>{
+            let item = res.data;
+            console.log(item)
+            setItemName(item.itemName)
+            setItemQuantity(item.quantity)
+            setItemPrice(item.price)
         })
     },[])
 
-    const handleFirstNameChange = event => {
-        setFirstName(event.target.value);
+    const handleItemNameChange = event => {
+        setItemName(event.target.value);
 
     }
 
-    const handleLastNameChange = event => {
-        setLastName(event.target.value);
+    const handleItemQuantityChange = event => {
+        setItemQuantity(event.target.value);
 
     }
 
-    const handleEmailChange = event => {
-        setEmailId(event.target.value);
+    const handleItemPriceChange = event => {
+        setItemPrice(event.target.value);
     }
 
-    const updateEmployee = async event => {
+    const updateItem = async event => {
         event.preventDefault();
-        let newEmployee = {firstName: firstName, lastName: lastName, emailId: emailId}
-        if(firstName !=="" && lastName!=="" && emailId !=="") {
-            await ItemService.updateItem(newEmployee,employeeId);
-            toast("Success, Employee Updated");
+        let newEmployee = {firstName: itemName, lastName: itemQuantity, emailId: itemPrice}
+        if(itemName !=="" && itemQuantity!=="" && itemPrice !=="") {
+            await ItemService.updateItem(newEmployee,itemId);
+            toast("Success, Item Updated");
 
         } else {
             alert("Do not submit empty boxes");
@@ -58,26 +59,26 @@ function UpdateEmployeeComponent(props) {
             <div className="container margin-top">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                        <h3 className="text-center"> Update Employee </h3>
+                        <h3 className="text-center"> Update Item </h3>
                         <div className="card-body">
                             <form>
                                 <div className="form-group">
-                                    <label>First Name:</label>
-                                    <input name = "FirstName" placeholder="First Name" className="form-control"
-                                           value={firstName} onChange={handleFirstNameChange}/>
+                                    <label>Item Name:</label>
+                                    <input name = "FirstName" placeholder="Item Name" className="form-control"
+                                           value={itemName} onChange={handleItemNameChange}/>
                                 </div>
                                 <div className="form-group">
-                                    <label>Last Name:</label>
-                                    <input name = "FirstName" placeholder="Last Name" className="form-control"
-                                           value={lastName} onChange={handleLastNameChange}/>
+                                    <label>Item Quantity:</label>
+                                    <input type="number" name = "FirstName" placeholder="Item Quantity" className="form-control"
+                                           value={itemQuantity} onChange={handleItemQuantityChange}/>
                                 </div>
                                 <div className="form-group">
-                                    <label>Email:</label>
-                                    <input name = "FirstName" placeholder="john.doe@gmail.com" className="form-control"
-                                           value={emailId} onChange={handleEmailChange}/>
+                                    <label>Item Price</label>
+                                    <input type="number" name = "FirstName" placeholder="Item Price" className="form-control"
+                                           value={itemPrice} onChange={handleItemPriceChange}/>
                                 </div>
-                                <button type="submit" className="btn btn-primary" onClick={updateEmployee}>Update Employee</button>
-                                <button type="submit" className="btn btn-danger cancel-button" onClick={()=>navigate("/employees")}>Cancel</button>
+                                <button type="submit" className="btn btn-primary" onClick={updateItem}>Update Item</button>
+                                <button type="submit" className="btn btn-danger cancel-button" onClick={()=>navigate("/items")}>Cancel</button>
                             </form>
                             <ToastContainer
                                 position="bottom-center"

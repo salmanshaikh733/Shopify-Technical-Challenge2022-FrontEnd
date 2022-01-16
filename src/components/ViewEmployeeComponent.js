@@ -27,7 +27,7 @@ function ViewEmployeeComponent(props) {
     }, [])
 
     const goBack = event => {
-        navigate("/employees");
+        navigate("/items");
     }
 
     return (

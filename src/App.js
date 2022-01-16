@@ -17,10 +17,10 @@ function App() {
                     <div className="container">
                         <Routes>
                             <Route path="/" exact element={<ListEmployeeComponent/>}/>
-                            <Route path="/employees" element={<ListEmployeeComponent/>}/>
-                            <Route path="/add-employee" element={<CreateEmployeeComponent/>}/>
-                            <Route path="/update-employee/:id" element={<UpdateEmployeeComponent/>}/>
-                            <Route path="/view-employee/:id" element={<ViewEmployeeComponent/>}/>
+                            <Route path="/items" element={<ListEmployeeComponent/>}/>
+                            <Route path="/add-item" element={<CreateEmployeeComponent/>}/>
+                            <Route path="/update-item/:id" element={<UpdateEmployeeComponent/>}/>
+                            <Route path="/view-item/:id" element={<ViewEmployeeComponent/>}/>
 
                         </Routes>
                     </div>

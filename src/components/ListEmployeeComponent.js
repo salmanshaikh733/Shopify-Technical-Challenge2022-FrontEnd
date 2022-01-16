@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ItemService from "../services/ItemService";
 import {useNavigate} from "react-router";
-import TableScrollbar from 'react-table-scrollbar';
 
 
 function ListEmployeeComponent() {
@@ -25,32 +24,32 @@ function ListEmployeeComponent() {
         })
     }, [dirty])
 
-    const deleteEmployee = async event => {
+    const deleteItem = async event => {
         await ItemService.deleteItem(event).then((res)=> {
             setDirty(dirty+1)
         })
     }
 
-    const viewEmployee = event => {
-        navigate(`/view-employee/${event}`);
+    const viewItem = event => {
+        navigate(`/view-item/${event}`);
     }
 
     //navigate to employee page
-    const updateEmployee = async event => {
-        navigate(`/update-employee/${event}`);
+    const updateItem = async event => {
+        navigate(`/update-item/${event}`);
     }
 
     return (
         <div>
-            <h2 className="text-center">Inventory List</h2>
-            <button className="btn btn-primary button" onClick={() => navigate("/add-employee")}> Add Employee</button>
-            <button className="btn btn-secondary button cancel-button" onClick={() => navigate("/add-employee")}> Export to CSV</button>
+            <h2 className="text-center offcanvas-title">Inventory List</h2>
+            <button className="btn btn-primary button" onClick={() => navigate("/add-item")}> Add Item </button>
+            <button className="btn btn-secondary button cancel-button" onClick={() => navigate("/add-item")}> Export to CSV</button>
             <div className="row">
             </div>
             <div className="row table-wrapper-scroll-y my-custom-scrollbar">
                 {/*<TableScrollbar rows={10}>*/}
-                <table className="table table-striped table-bordered table-overflow" >
-                    <thead>
+                <table className="table table-striped table-bordered table-hover table-dark table-overflow" >
+                    <thead className="sticky-top">
                     <tr>
                         <th> Item Name</th>
                         <th> Item Quantity</th>
@@ -67,15 +66,15 @@ function ListEmployeeComponent() {
                                 <td> {item.price}</td>
                                 <td>
                                     <button className="btn btn-info"
-                                            onClick={() => updateEmployee(item.id)}>Update
+                                            onClick={() => updateItem(item.id)}>Update
                                     </button>
                                     &nbsp;&nbsp;&nbsp;
                                     <button className="btn btn-danger"
-                                            onClick={() => deleteEmployee(item.id)}>Delete
+                                            onClick={() => deleteItem(item.id)}>Delete
                                     </button>
                                     &nbsp;&nbsp;&nbsp;
-                                    <button className="btn btn-dark"
-                                            onClick={() => viewEmployee(item.id)}>View
+                                    <button className="btn btn-light"
+                                            onClick={() => viewItem(item.id)}>View
                                     </button>
                                 </td>
                             </tr>

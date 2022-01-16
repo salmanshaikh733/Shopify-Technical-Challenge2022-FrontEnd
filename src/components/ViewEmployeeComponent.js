@@ -17,7 +17,7 @@ function ViewEmployeeComponent(props) {
 
     //component did mount
     useEffect(() => {
-        ItemService.getEmployeeById(employeeId).then((res) => {
+        ItemService.getItemById(employeeId).then((res) => {
             employee = res.data;
             setFirstName(employee.firstName)
             setLastName(employee.lastName)

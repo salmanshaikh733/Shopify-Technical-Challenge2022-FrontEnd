@@ -4,9 +4,8 @@ function FooterComponent(){
         return (
             <div>
                 <footer className= "footer">
-                    <span className="text-muted"> All rights Reserved 2020 Salman Shaikh</span>
+                    <span className="text-info"> Shopify Backend Challenge: Salman Shaikh</span>
                 </footer>
-                
             </div>
         );
 

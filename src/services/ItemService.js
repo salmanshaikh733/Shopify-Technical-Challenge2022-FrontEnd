@@ -7,11 +7,11 @@ const headers = {
 }
 class ItemService {
 
-    async getEmployees() {
+    async getItems() {
         return await axios.get(ITEM_API_BASE_URL + "/items");
     }
 
-    async createNewEmployee(data) {
+    async addNewItem(data) {
         await axios.post(ITEM_API_BASE_URL + "/add-items", data, {headers: headers})
             .then(r => console.log())
             .catch(e => {
@@ -19,7 +19,7 @@ class ItemService {
             });
     }
 
-    async updateEmployee(data, id) {
+    async updateItem(data, id) {
         await axios.put(ITEM_API_BASE_URL + `/update-item/${id}`, data, {headers:headers})
             .then(r=> console.log())
             .catch(e => {
@@ -27,11 +27,11 @@ class ItemService {
             });
     }
 
-    async getEmployeeById(employeeId) {
+    async getItemById(employeeId) {
         return await axios.get(ITEM_API_BASE_URL + "/get-item/" + employeeId)
     }
 
-    async deleteEmployee(id) {
+    async deleteItem(id) {
         await axios.delete(ITEM_API_BASE_URL + `/delete-item/${id}`, {headers:headers})
             .then(r=> console.log())
             .catch(e=> {

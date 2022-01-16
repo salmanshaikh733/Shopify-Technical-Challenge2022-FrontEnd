@@ -19,7 +19,7 @@ function UpdateEmployeeComponent(props) {
 
     //when component mounts
     useEffect(() => {
-        ItemService.getEmployeeById(employeeId).then((res) =>{
+        ItemService.getItemById(employeeId).then((res) =>{
             let employee = res.data;
             setFirstName(employee.firstName)
             setLastName(employee.lastName)
@@ -45,7 +45,7 @@ function UpdateEmployeeComponent(props) {
         event.preventDefault();
         let newEmployee = {firstName: firstName, lastName: lastName, emailId: emailId}
         if(firstName !=="" && lastName!=="" && emailId !=="") {
-            await ItemService.updateEmployee(newEmployee,employeeId);
+            await ItemService.updateItem(newEmployee,employeeId);
             toast("Success, Employee Updated");
 
         } else {

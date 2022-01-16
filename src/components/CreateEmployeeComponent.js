@@ -30,7 +30,7 @@ function CreateEmployeeComponent() {
         event.preventDefault();
         let newEmployee = {firstName: firstName, lastName: lastName, emailId: emailId}
         if(firstName !=="" && lastName!=="" && emailId !=="") {
-            await ItemService.createNewEmployee(newEmployee);
+            await ItemService.addNewItem(newEmployee);
             toast("Success, Employee Added");
         } else {
             alert("Do not submit empty boxes");

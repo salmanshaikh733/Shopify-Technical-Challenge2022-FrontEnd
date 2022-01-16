@@ -3,7 +3,7 @@ import ItemService from "../services/ItemService";
 import {useNavigate} from "react-router";
 
 
-function ListEmployeeComponent() {
+function ListItemComponent() {
     let navigate = useNavigate();
     const [dirty,setDirty] = useState(0)
     const [items, setItems] = useState([])
@@ -12,7 +12,6 @@ function ListEmployeeComponent() {
     useEffect(() => {
         ItemService.getItems().then((res) => {
             setItems(res.data)
-            console.log(items);
             items.sort()
             setDirty(dirty+1)
         })
@@ -34,7 +33,7 @@ function ListEmployeeComponent() {
         navigate(`/view-item/${event}`);
     }
 
-    //navigate to employee page
+    //navigate to update-item page
     const updateItem = async event => {
         navigate(`/update-item/${event}`);
     }
@@ -47,8 +46,7 @@ function ListEmployeeComponent() {
             <div className="row">
             </div>
             <div className="row table-wrapper-scroll-y my-custom-scrollbar">
-                {/*<TableScrollbar rows={10}>*/}
-                <table className="table table-striped table-bordered table-hover table-dark table-overflow" >
+                <table className="table table-striped table-bordered table-hover table-light " >
                     <thead className="sticky-top">
                     <tr>
                         <th> Item Name</th>
@@ -63,7 +61,7 @@ function ListEmployeeComponent() {
                             item => <tr key={item.id}>
                                 <td> {item.itemName}</td>
                                 <td> {item.quantity}</td>
-                                <td> {item.price}</td>
+                                <td>$ {item.price.toFixed(2)}</td>
                                 <td>
                                     <button className="btn btn-info"
                                             onClick={() => updateItem(item.id)}>Update
@@ -73,7 +71,7 @@ function ListEmployeeComponent() {
                                             onClick={() => deleteItem(item.id)}>Delete
                                     </button>
                                     &nbsp;&nbsp;&nbsp;
-                                    <button className="btn btn-light"
+                                    <button className="btn btn-outline-dark"
                                             onClick={() => viewItem(item.id)}>View
                                     </button>
                                 </td>
@@ -82,13 +80,12 @@ function ListEmployeeComponent() {
                     }
                     </tbody>
                 </table>
-                {/* </TableScrollbar>*/}
             </div>
 
         </div>
     );
 }
 
-export default ListEmployeeComponent;
+export default ListItemComponent;
 
 

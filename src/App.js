@@ -1,13 +1,13 @@
 import React from "react";
 import './App.css';
-import ListEmployeeComponent from "./components/ListEmployeeComponent";
+import ListItemComponent from "./components/ListItemComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route} from 'react-router';
-import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
-import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
-import ViewEmployeeComponent from "./components/ViewEmployeeComponent";
+import AddItemComponent from "./components/AddItemComponent";
+import UpdateItemComponent from "./components/UpdateItemComponent";
+import ViewItemComponent from "./components/ViewItemComponent";
 
 function App() {
     return (
@@ -16,11 +16,11 @@ function App() {
                     <HeaderComponent/>
                     <div className="container">
                         <Routes>
-                            <Route path="/" exact element={<ListEmployeeComponent/>}/>
-                            <Route path="/items" element={<ListEmployeeComponent/>}/>
-                            <Route path="/add-item" element={<CreateEmployeeComponent/>}/>
-                            <Route path="/update-item/:id" element={<UpdateEmployeeComponent/>}/>
-                            <Route path="/view-item/:id" element={<ViewEmployeeComponent/>}/>
+                            <Route path="/" exact element={<ListItemComponent/>}/>
+                            <Route path="/items" element={<ListItemComponent/>}/>
+                            <Route path="/add-item" element={<AddItemComponent/>}/>
+                            <Route path="/update-item/:id" element={<UpdateItemComponent/>}/>
+                            <Route path="/view-item/:id" element={<ViewItemComponent/>}/>
 
                         </Routes>
                     </div>

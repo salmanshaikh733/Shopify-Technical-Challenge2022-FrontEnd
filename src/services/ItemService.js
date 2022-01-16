@@ -12,7 +12,7 @@ class ItemService {
     }
 
     async addNewItem(data) {
-        await axios.post(ITEM_API_BASE_URL + "/add-items", data, {headers: headers})
+        await axios.post(ITEM_API_BASE_URL + "/add-item", data, {headers: headers})
             .then(r => console.log())
             .catch(e => {
                 console.log(e)
@@ -38,9 +38,6 @@ class ItemService {
                 console.log(e)
             });
     }
-
-
-
 }
 
 export default new ItemService()

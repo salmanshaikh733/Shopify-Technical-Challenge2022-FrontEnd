@@ -90,3 +90,19 @@
 .table-wrapper-scroll-y {
   display: block;
 }
+
+.warehouse-logo {
+  width: 50px;
+  margin-right: 0px;
+}
+
+.margin-left {
+  margin-left: 5px;
+}
+
+.github-logo {
+ position: absolute;
+  right: 1%;
+  top: 5px;
+  margin-right: 5px;
+}

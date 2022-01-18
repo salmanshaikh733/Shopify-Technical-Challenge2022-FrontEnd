@@ -38,6 +38,18 @@ class ItemService {
                 console.log(e)
             });
     }
+
+    async getCSV() {
+        return axios.get(ITEM_API_BASE_URL + "/download-csv");
+    }
+
+    async changeQuantity(id, increment) {
+        await axios.put(ITEM_API_BASE_URL + `/change-item-quantity/${id}/${increment}`, {headers:headers})
+            .then(r=> console.log())
+            .catch(e=> {
+                console.log(e)
+            });
+    }
 }
 
 export default new ItemService()

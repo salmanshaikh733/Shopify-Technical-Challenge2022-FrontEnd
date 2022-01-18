@@ -22,7 +22,6 @@ function ViewItemComponent(props) {
             setItemName(item.itemName)
             setItemQuantity(item.quantity)
             setItemPrice(item.price)
-
         })
     }, [])
 

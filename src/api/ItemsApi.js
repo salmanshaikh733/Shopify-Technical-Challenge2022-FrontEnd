@@ -5,7 +5,7 @@ const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': "*",
 }
-class ItemService {
+class ItemApi {
 
     async getItems() {
         return await axios.get(ITEM_API_BASE_URL + "/items");
@@ -52,4 +52,4 @@ class ItemService {
     }
 }
 
-export default new ItemService()
+export default new ItemApi()

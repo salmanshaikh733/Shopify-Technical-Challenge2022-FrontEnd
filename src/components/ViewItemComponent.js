@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import ItemService from "../api/ItemService";
+import ItemsApi from "../api/ItemsApi";
 import {useNavigate} from "react-router";
 
 
@@ -17,7 +17,7 @@ function ViewItemComponent(props) {
 
     //component did mount
     useEffect(() => {
-        ItemService.getItemById(itemId).then((res) => {
+        ItemsApi.getItemById(itemId).then((res) => {
             item = res.data;
             setItemName(item.itemName)
             setItemQuantity(item.quantity)

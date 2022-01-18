@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import ItemService from "../api/ItemService";
+import ItemsApi from "../api/ItemsApi";
 import {useNavigate} from "react-router";
 import { CSVLink } from 'react-csv'
 
@@ -13,7 +13,7 @@ function ListItemComponent() {
 
     //on initial mount
     useEffect(() => {
-        ItemService.getItems().then((res) => {
+        ItemsApi.getItems().then((res) => {
             setItems(res.data)
             items.sort()
             setDirty(dirty+1)
@@ -21,15 +21,15 @@ function ListItemComponent() {
     }, [])
 
     useEffect(() => {
-        ItemService.getItems().then((res) => {
+        ItemsApi.getItems().then((res) => {
             setItems(res.data)
         })
-        ItemService.getCSV().then((res)=> setCsv(res.data));
+        ItemsApi.getCSV().then((res)=> setCsv(res.data));
         setCsv("");
     }, [dirty])
 
     const deleteItem = async event => {
-        await ItemService.deleteItem(event).then((res)=> {
+        await ItemsApi.deleteItem(event).then((res)=> {
             setDirty(dirty+1)
         })
     }
@@ -47,7 +47,7 @@ function ListItemComponent() {
     }
 
     const changeQuantity = (itemId, increment) => {
-        ItemService.changeQuantity(itemId,increment).then((res) => {
+        ItemsApi.changeQuantity(itemId,increment).then((res) => {
             setDirty(dirty+1)
         })
     }
@@ -81,7 +81,7 @@ function ListItemComponent() {
                         items.map(
                             item => <tr key={item.id}>
                                 <td> {item.itemName}</td>
-                                <td> {item.quantity}</td>
+                                <td> {item.quantity === 0 ? "Out of Stock" : item.quantity}</td>
                                 <td>$ {item.price.toFixed(2)}</td>
                                 <td>
                                     <button className="btn btn-info"

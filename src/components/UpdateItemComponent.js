@@ -1,11 +1,10 @@
 import React, {useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
-import ItemService from "../api/ItemService";
+import ItemsApi from "../api/ItemsApi";
 import {useNavigate} from "react-router";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
-import {wait} from "@testing-library/user-event/dist/utils";
+
 
 
 function UpdateItemComponent(props) {
@@ -20,7 +19,7 @@ function UpdateItemComponent(props) {
 
     //when component mounts
     useEffect(() => {
-        ItemService.getItemById(itemId).then((res) =>{
+        ItemsApi.getItemById(itemId).then((res) =>{
             let item = res.data;
             setItemName(item.itemName)
             setItemQuantity(item.quantity)
@@ -58,7 +57,7 @@ function UpdateItemComponent(props) {
         event.preventDefault();
         let newItem = {itemName: itemName, quantity: itemQuantity, price: itemPrice}
         if(itemName !=="" && itemQuantity!=="" && itemPrice !=="") {
-            await ItemService.updateItem(newItem,itemId);
+            await ItemsApi.updateItem(newItem,itemId);
             toast("Success, Item Updated");
         } else {
             toast("ERROR: Do not submit empty boxes");

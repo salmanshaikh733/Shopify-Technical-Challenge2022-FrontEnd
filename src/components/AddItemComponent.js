@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import ItemService from "../api/ItemService";
+import ItemsApi from "../api/ItemsApi";
 import {useNavigate} from "react-router";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -42,7 +42,7 @@ function AddItemComponent() {
         event.preventDefault();
         let newItem = {itemName: itemName, quantity: itemQuantity, price: itemPrice}
         if(itemName !=="" && itemQuantity!=="" && itemPrice !=="") {
-            await ItemService.addNewItem(newItem);
+            await ItemsApi.addNewItem(newItem);
             toast("Success, Item Added");
         } else {
             toast("ERROR: Do not submit empty boxes");

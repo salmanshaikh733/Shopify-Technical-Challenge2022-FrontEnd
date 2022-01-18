@@ -4,7 +4,7 @@ import ItemsApi from "../api/ItemsApi";
 import {useNavigate} from "react-router";
 
 
-function ViewItemComponent(props) {
+function ViewItemComponent() {
     let navigate = useNavigate();
 
     const params = useParams();

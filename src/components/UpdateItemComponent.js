@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-function UpdateItemComponent(props) {
+function UpdateItemComponent() {
 
     const params = useParams();
     let navigate = useNavigate();

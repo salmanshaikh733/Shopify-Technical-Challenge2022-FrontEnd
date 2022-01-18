@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import ItemService from "../services/ItemService";
+import ItemService from "../api/ItemService";
 import {useNavigate} from "react-router";
 import { CSVLink } from 'react-csv'
 

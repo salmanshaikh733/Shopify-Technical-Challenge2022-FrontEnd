@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
-import ItemService from "../services/ItemService";
+import ItemService from "../api/ItemService";
 import {useNavigate} from "react-router";
 import {ToastContainer, toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';

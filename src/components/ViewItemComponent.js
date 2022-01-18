@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import ItemService from "../services/ItemService";
+import ItemService from "../api/ItemService";
 import {useNavigate} from "react-router";
 
 

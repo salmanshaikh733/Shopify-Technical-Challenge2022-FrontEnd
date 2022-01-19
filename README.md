@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+You may need to install node.js to run the frontend client locally. 
+
+https://nodejs.org/en/download/
+
 ## Available Scripts
 
 In the project directory, you can run using command prompt:

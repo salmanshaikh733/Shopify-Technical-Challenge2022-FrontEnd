@@ -8,7 +8,7 @@ https://nodejs.org/en/download/
 
 ## Available Scripts
 
-In the project directory, you can run using command prompt:
+In the project directory, you can run using command prompt: It would be best to use some sort of bash terminal though
 
 Before running node modules must installed run
 

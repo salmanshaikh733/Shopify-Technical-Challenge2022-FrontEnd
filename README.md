@@ -1,3 +1,6 @@
+# To use live version deployed using Heruko Go to
+https://salman-inventory-front-end.herokuapp.com/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

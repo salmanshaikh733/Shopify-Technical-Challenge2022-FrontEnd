@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ITEM_API_BASE_URL = process.env.REACT_APP_API_KEY;
+const ITEM_API_BASE_URL = process.env.REACT_APP_BASE_URL;
 //const ITEM_API_BASE_URL = "http://localhost:8080/api/v1";
 //const ITEM_API_BASE_URL = "https://salman-inventory-app.herokuapp.com/api/v1";
 
